@@ -16,6 +16,9 @@
 		11ED67E522FBE4D2004C17D0 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67E422FBE4D2004C17D0 /* Drawer.swift */; };
 		11ED67E722FBE526004C17D0 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67E622FBE526004C17D0 /* Animator.swift */; };
 		11ED67E922FBE554004C17D0 /* Counst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67E822FBE554004C17D0 /* Counst.swift */; };
+		11ED67EC22FBF8FA004C17D0 /* NormalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67EB22FBF8FA004C17D0 /* NormalView.swift */; };
+		11ED67EE22FC1100004C17D0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67ED22FC10FF004C17D0 /* HeaderView.swift */; };
+		11ED67F322FC223E004C17D0 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67F222FC223E004C17D0 /* SwitchView.swift */; };
 		D5A7F9E1EB9E67308CA2BA92 /* Pods_HiveDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAE71C075442B564210F1AF /* Pods_HiveDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		11ED67E422FBE4D2004C17D0 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		11ED67E622FBE526004C17D0 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		11ED67E822FBE554004C17D0 /* Counst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counst.swift; sourceTree = "<group>"; };
+		11ED67EB22FBF8FA004C17D0 /* NormalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalView.swift; sourceTree = "<group>"; };
+		11ED67ED22FC10FF004C17D0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		11ED67F222FC223E004C17D0 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		3BAE71C075442B564210F1AF /* Pods_HiveDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D4649130B451795919145C /* Pods-HiveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveDemo.release.xcconfig"; path = "Target Support Files/Pods-HiveDemo/Pods-HiveDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FE75DB7FA1854D9E57BB1B7C /* Pods-HiveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveDemo.debug.xcconfig"; path = "Target Support Files/Pods-HiveDemo/Pods-HiveDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 		11ED67CC22FBD037004C17D0 /* HiveDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11ED67EA22FBF8DC004C17D0 /* Common */,
 				11ED67DF22FBDA3B004C17D0 /* Drawer */,
 				11ED67CD22FBD037004C17D0 /* AppDelegate.swift */,
 				11ED67CF22FBD037004C17D0 /* MainViewController.swift */,
@@ -89,6 +96,16 @@
 				11ED67E822FBE554004C17D0 /* Counst.swift */,
 			);
 			path = Drawer;
+			sourceTree = "<group>";
+		};
+		11ED67EA22FBF8DC004C17D0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				11ED67EB22FBF8FA004C17D0 /* NormalView.swift */,
+				11ED67ED22FC10FF004C17D0 /* HeaderView.swift */,
+				11ED67F222FC223E004C17D0 /* SwitchView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		1CB1E565F6FF1F8B2394DC8B /* Pods */ = {
@@ -224,11 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				11ED67E722FBE526004C17D0 /* Animator.swift in Sources */,
+				11ED67EC22FBF8FA004C17D0 /* NormalView.swift in Sources */,
 				11ED67E522FBE4D2004C17D0 /* Drawer.swift in Sources */,
 				11ED67E922FBE554004C17D0 /* Counst.swift in Sources */,
 				11ED67E322FBE04C004C17D0 /* LeftViewController.swift in Sources */,
 				11ED67D022FBD037004C17D0 /* MainViewController.swift in Sources */,
 				11ED67CE22FBD037004C17D0 /* AppDelegate.swift in Sources */,
+				11ED67EE22FC1100004C17D0 /* HeaderView.swift in Sources */,
+				11ED67F322FC223E004C17D0 /* SwitchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
