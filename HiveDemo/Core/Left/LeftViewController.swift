@@ -33,6 +33,7 @@ class LeftViewController: UIViewController {
 
         addFriend = NormalView()
         addFriend.icon.image = UIImage.init(named: "add")
+        addFriend.button.addTarget(self, action: #selector(addFriendAction), for: UIControl.Event.touchUpInside)
         addFriend.title.text = "添加好友"
 
         listFriend = NormalView()
@@ -60,5 +61,15 @@ class LeftViewController: UIViewController {
         self.view.addSubview(stackView)
 
     }
+
+    @objc func addFriendAction() {
+        let scanVC = ScanViewController()
+        let nat = UINavigationController(rootViewController: scanVC)
+//        self.show(nat, sender: nil)
+        let main = MainViewController()
+        main.navigationController?.show(scanVC, sender: nil)
+//        self.present(nat, animated: true, completion: nil)
+    }
+
 
 }

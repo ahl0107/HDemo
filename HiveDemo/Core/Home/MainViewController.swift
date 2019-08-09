@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// The home 
 class MainViewController: UIViewController {
 
     var leftVC: LeftViewController = LeftViewController()
@@ -35,15 +37,17 @@ class MainViewController: UIViewController {
 
     func createLeftItem() {
         let img = UIImage(named: "user")
-        let item0 = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftList))
-        self.navigationItem.leftBarButtonItem = item0
+        let item = UIBarButtonItem(image: img, style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftList))
+        self.navigationItem.leftBarButtonItem = item
     }
 
     func creatUI() {
         ipfsDrive = DriveView()
+        ipfsDrive.button.addTarget(self, action: #selector(listAction(_:)), for: UIControl.Event.touchUpInside)
         ipfsDrive.nameLable.text = "ipfsrive"
 
         oneDrive = DriveView()
+        oneDrive.button.addTarget(self, action: #selector(listAction(_:)), for: UIControl.Event.touchUpInside)
         oneDrive.nameLable.text = "OneDrive"
         driveStackView = UIStackView(arrangedSubviews: [ipfsDrive, oneDrive])
         driveStackView.frame = CGRect(x: 20, y: SAFE_BAR_Height + 40, width: SCREEN_WIDTH - 40, height: 88)
@@ -65,12 +69,15 @@ class MainViewController: UIViewController {
         }
 
         myCard = DriveView()
+        myCard.button.addTarget(self, action: #selector(qrcode), for: UIControl.Event.touchUpInside)
         myCard.nameLable.text = "my card"
 
         addFriend = DriveView()
+        addFriend.button.addTarget(self, action: #selector(addFriendAction), for: UIControl.Event.touchUpInside)
         addFriend.nameLable.text = "add Friend"
 
         myFriend = DriveView()
+        myFriend.button.addTarget(self, action: #selector(friendList), for: UIControl.Event.touchUpInside)
         myFriend.nameLable.text = "my Friend"
 
         funStackView = UIStackView(arrangedSubviews: [myCard, addFriend, myFriend])
@@ -89,9 +96,29 @@ class MainViewController: UIViewController {
 
     }
 
+//    mark - action
+    @objc func listAction(_ sendr: UIButton) {
+        let hiveListVC = HiveListViewController()
+        self.navigationController?.pushViewController(hiveListVC, animated: true)
+    }
+
    @objc func leftList() {
     draw.show()
     }
 
+    @objc func addFriendAction() {
+        let scanVC = ScanViewController()
+        self.navigationController!.show(scanVC, sender: nil)
+    }
+
+    @objc func qrcode() {
+        let myCardVC = MyCardViewController()
+        self.navigationController?.pushViewController(myCardVC, animated: true)
+    }
+
+    @objc func friendList() {
+        let myFriendVC = FriendViewController()
+        self.navigationController?.pushViewController(myFriendVC, animated: true)
+    }
 }
 

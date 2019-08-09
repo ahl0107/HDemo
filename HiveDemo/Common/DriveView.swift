@@ -13,6 +13,7 @@ class DriveView: UIView {
 
     var containerView: UIView!
     var nameLable: UILabel!
+    var button: UIButton!
 
 
     override init(frame: CGRect) {
@@ -45,6 +46,15 @@ class DriveView: UIView {
             make.width.equalToSuperview()
             make.height.equalTo(44)
             make.center.equalToSuperview()
+        }
+
+        button = UIButton()
+        self.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+            make.top.equalToSuperview()
         }
     }
 

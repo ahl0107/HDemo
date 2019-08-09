@@ -20,6 +20,19 @@
 		11ED67EE22FC1100004C17D0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67ED22FC10FF004C17D0 /* HeaderView.swift */; };
 		11ED67F322FC223E004C17D0 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67F222FC223E004C17D0 /* SwitchView.swift */; };
 		11ED67F522FC6F95004C17D0 /* DriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67F422FC6F95004C17D0 /* DriveView.swift */; };
+		11ED67FC22FD2493004C17D0 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11ED67F922FD2493004C17D0 /* ScanViewController.xib */; };
+		11ED67FD22FD2493004C17D0 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67FA22FD2493004C17D0 /* ScanViewController.m */; };
+		11ED680422FD27A7004C17D0 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED680322FD27A7004C17D0 /* MyCardViewController.swift */; };
+		11ED680A22FD29AE004C17D0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED680622FD29AE004C17D0 /* MBProgressHUD.m */; };
+		11ED680B22FD29AE004C17D0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 11ED680722FD29AE004C17D0 /* LICENSE */; };
+		11ED680C22FD29AE004C17D0 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 11ED680922FD29AE004C17D0 /* README.mdown */; };
+		11ED680E22FD2AD9004C17D0 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED680D22FD2AD7004C17D0 /* DeviceManager.swift */; };
+		11ED681122FD2AFA004C17D0 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681022FD2AFA004C17D0 /* NetworkReachabilityManager.swift */; };
+		11ED681322FD3846004C17D0 /* HiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681222FD3846004C17D0 /* HiveListViewController.swift */; };
+		11ED681522FD385B004C17D0 /* HiveListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681422FD385B004C17D0 /* HiveListCell.swift */; };
+		11ED681722FD5CED004C17D0 /* HiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681622FD5CED004C17D0 /* HiveModel.swift */; };
+		11ED681D22FD658D004C17D0 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681C22FD658D004C17D0 /* FriendViewController.swift */; };
+		11ED681F22FD65D5004C17D0 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED681E22FD65D5004C17D0 /* FriendCell.swift */; };
 		D5A7F9E1EB9E67308CA2BA92 /* Pods_HiveDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAE71C075442B564210F1AF /* Pods_HiveDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +52,22 @@
 		11ED67ED22FC10FF004C17D0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		11ED67F222FC223E004C17D0 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		11ED67F422FC6F95004C17D0 /* DriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveView.swift; sourceTree = "<group>"; };
+		11ED67F922FD2493004C17D0 /* ScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanViewController.xib; sourceTree = "<group>"; };
+		11ED67FA22FD2493004C17D0 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		11ED67FB22FD2493004C17D0 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		11ED680222FD2685004C17D0 /* HiveDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HiveDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		11ED680322FD27A7004C17D0 /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
+		11ED680622FD29AE004C17D0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		11ED680722FD29AE004C17D0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		11ED680822FD29AE004C17D0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		11ED680922FD29AE004C17D0 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
+		11ED680D22FD2AD7004C17D0 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		11ED681022FD2AFA004C17D0 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		11ED681222FD3846004C17D0 /* HiveListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveListViewController.swift; sourceTree = "<group>"; };
+		11ED681422FD385B004C17D0 /* HiveListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveListCell.swift; sourceTree = "<group>"; };
+		11ED681622FD5CED004C17D0 /* HiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveModel.swift; sourceTree = "<group>"; };
+		11ED681C22FD658D004C17D0 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		11ED681E22FD65D5004C17D0 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		3BAE71C075442B564210F1AF /* Pods_HiveDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D4649130B451795919145C /* Pods-HiveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveDemo.release.xcconfig"; path = "Target Support Files/Pods-HiveDemo/Pods-HiveDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FE75DB7FA1854D9E57BB1B7C /* Pods-HiveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveDemo.debug.xcconfig"; path = "Target Support Files/Pods-HiveDemo/Pods-HiveDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,11 +106,12 @@
 		11ED67CC22FBD037004C17D0 /* HiveDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11ED67F722FD2482004C17D0 /* Vendors */,
 				11ED67EA22FBF8DC004C17D0 /* Common */,
 				11ED67DF22FBDA3B004C17D0 /* Drawer */,
+				11ED681A22FD60FF004C17D0 /* Core */,
 				11ED67CD22FBD037004C17D0 /* AppDelegate.swift */,
-				11ED67CF22FBD037004C17D0 /* MainViewController.swift */,
-				11ED67E222FBE04C004C17D0 /* LeftViewController.swift */,
+				11ED680222FD2685004C17D0 /* HiveDemo-Bridging-Header.h */,
 				11ED67D122FBD037004C17D0 /* Main.storyboard */,
 				11ED67D422FBD03C004C17D0 /* Assets.xcassets */,
 				11ED67D622FBD03C004C17D0 /* LaunchScreen.storyboard */,
@@ -103,12 +133,91 @@
 		11ED67EA22FBF8DC004C17D0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				11ED680D22FD2AD7004C17D0 /* DeviceManager.swift */,
 				11ED67EB22FBF8FA004C17D0 /* NormalView.swift */,
 				11ED67ED22FC10FF004C17D0 /* HeaderView.swift */,
 				11ED67F222FC223E004C17D0 /* SwitchView.swift */,
 				11ED67F422FC6F95004C17D0 /* DriveView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		11ED67F722FD2482004C17D0 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				11ED680F22FD2AFA004C17D0 /* NetworkReachability */,
+				11ED680522FD29AE004C17D0 /* MBProgressHUD */,
+				11ED67F822FD2493004C17D0 /* Scan */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		11ED67F822FD2493004C17D0 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				11ED67F922FD2493004C17D0 /* ScanViewController.xib */,
+				11ED67FA22FD2493004C17D0 /* ScanViewController.m */,
+				11ED67FB22FD2493004C17D0 /* ScanViewController.h */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		11ED680522FD29AE004C17D0 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				11ED680622FD29AE004C17D0 /* MBProgressHUD.m */,
+				11ED680722FD29AE004C17D0 /* LICENSE */,
+				11ED680822FD29AE004C17D0 /* MBProgressHUD.h */,
+				11ED680922FD29AE004C17D0 /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		11ED680F22FD2AFA004C17D0 /* NetworkReachability */ = {
+			isa = PBXGroup;
+			children = (
+				11ED681022FD2AFA004C17D0 /* NetworkReachabilityManager.swift */,
+			);
+			path = NetworkReachability;
+			sourceTree = "<group>";
+		};
+		11ED681822FD6097004C17D0 /* Left */ = {
+			isa = PBXGroup;
+			children = (
+				11ED67E222FBE04C004C17D0 /* LeftViewController.swift */,
+				11ED680322FD27A7004C17D0 /* MyCardViewController.swift */,
+			);
+			path = Left;
+			sourceTree = "<group>";
+		};
+		11ED681922FD60A9004C17D0 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				11ED681C22FD658D004C17D0 /* FriendViewController.swift */,
+				11ED681E22FD65D5004C17D0 /* FriendCell.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		11ED681A22FD60FF004C17D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				11ED681B22FD613A004C17D0 /* Home */,
+				11ED681922FD60A9004C17D0 /* Friend */,
+				11ED681822FD6097004C17D0 /* Left */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		11ED681B22FD613A004C17D0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				11ED67CF22FBD037004C17D0 /* MainViewController.swift */,
+				11ED681222FD3846004C17D0 /* HiveListViewController.swift */,
+				11ED681422FD385B004C17D0 /* HiveListCell.swift */,
+				11ED681622FD5CED004C17D0 /* HiveModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		1CB1E565F6FF1F8B2394DC8B /* Pods */ = {
@@ -191,6 +300,9 @@
 				11ED67D822FBD03C004C17D0 /* LaunchScreen.storyboard in Resources */,
 				11ED67D522FBD03C004C17D0 /* Assets.xcassets in Resources */,
 				11ED67D322FBD037004C17D0 /* Main.storyboard in Resources */,
+				11ED680C22FD29AE004C17D0 /* README.mdown in Resources */,
+				11ED67FC22FD2493004C17D0 /* ScanViewController.xib in Resources */,
+				11ED680B22FD29AE004C17D0 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,15 +356,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				11ED67E722FBE526004C17D0 /* Animator.swift in Sources */,
+				11ED681722FD5CED004C17D0 /* HiveModel.swift in Sources */,
+				11ED681D22FD658D004C17D0 /* FriendViewController.swift in Sources */,
 				11ED67EC22FBF8FA004C17D0 /* NormalView.swift in Sources */,
 				11ED67E522FBE4D2004C17D0 /* Drawer.swift in Sources */,
 				11ED67E922FBE554004C17D0 /* Counst.swift in Sources */,
+				11ED680422FD27A7004C17D0 /* MyCardViewController.swift in Sources */,
 				11ED67E322FBE04C004C17D0 /* LeftViewController.swift in Sources */,
+				11ED67FD22FD2493004C17D0 /* ScanViewController.m in Sources */,
+				11ED680E22FD2AD9004C17D0 /* DeviceManager.swift in Sources */,
 				11ED67F522FC6F95004C17D0 /* DriveView.swift in Sources */,
 				11ED67D022FBD037004C17D0 /* MainViewController.swift in Sources */,
+				11ED681122FD2AFA004C17D0 /* NetworkReachabilityManager.swift in Sources */,
+				11ED680A22FD29AE004C17D0 /* MBProgressHUD.m in Sources */,
 				11ED67CE22FBD037004C17D0 /* AppDelegate.swift in Sources */,
 				11ED67EE22FC1100004C17D0 /* HeaderView.swift in Sources */,
+				11ED681522FD385B004C17D0 /* HiveListCell.swift in Sources */,
+				11ED681322FD3846004C17D0 /* HiveListViewController.swift in Sources */,
 				11ED67F322FC223E004C17D0 /* SwitchView.swift in Sources */,
+				11ED681F22FD65D5004C17D0 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,8 +531,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = elastos.HiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiveDemo/HiveDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -429,8 +553,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = elastos.HiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiveDemo/HiveDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
