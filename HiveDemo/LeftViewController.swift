@@ -28,7 +28,7 @@ class LeftViewController: UIViewController {
     func creatUI() {
         headerView = HeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 150)
-        headerView.backgroundColor = UIColor(red: 98/255.0, green: 220/255.0, blue: 255/255.0, alpha: 1)
+        headerView.backgroundColor = ColorHex("#76d4f8")
         self.view.addSubview(headerView)
 
         addFriend = NormalView()
@@ -50,7 +50,6 @@ class LeftViewController: UIViewController {
         reciveFile = SwitchView()
         reciveFile.icon.image = UIImage.init(named: "icloud")
         reciveFile.title.text = "接收文件"
-
 
         stackView = UIStackView(arrangedSubviews: [addFriend, listFriend, localStore, icloudStore, reciveFile])
         stackView.frame = CGRect(x: 30, y: 200, width: 300, height: 50 * 5)

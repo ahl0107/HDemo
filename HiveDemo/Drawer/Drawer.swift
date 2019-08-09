@@ -54,9 +54,9 @@ class Drawer: NSObject {
         self.main = main
         self.drawer = drawer
         animator = Animator(self.main!, self.drawer!)
-        self.dragMain = UIPanGestureRecognizer(target: self, action: #selector(panBaseAction(pan:)))
+        self.dragMain = UIPanGestureRecognizer(target: self, action: #selector(dragMainAction(_:)))
         main.view.addGestureRecognizer(self.dragMain!)
-        self.dragDrawer = UIPanGestureRecognizer(target: self, action: #selector(panDrawerAction(pan:)))
+        self.dragDrawer = UIPanGestureRecognizer(target: self, action: #selector(dragDrawerAction(_:)))
         drawer.view.addGestureRecognizer(self.dragDrawer!)
         self.drawer?.transitioningDelegate = self.animator
     }
@@ -76,7 +76,6 @@ class Drawer: NSObject {
 
 extension Drawer {
 
-    ///显示抽屉
 
     /// Show drawer
     func show() {
@@ -97,11 +96,11 @@ extension Drawer {
 
 extension Drawer {
 
-    @objc func panBaseAction(pan: UIPanGestureRecognizer) {
-        let transition = pan.translation(in: self.drawer?.view)
+    @objc func dragMainAction(_ sender: UIPanGestureRecognizer) {
+        let transition = sender.translation(in: self.drawer?.view)
         let percentage = CGFloat(transition.x/SCREEN_WIDTH)
-        let velocity = CGFloat(abs(pan.velocity(in: self.drawer?.view).x))
-        switch pan.state {
+        let velocity = CGFloat(abs(sender.velocity(in: self.drawer?.view).x))
+        switch sender.state {
         case .began:
             if transition.x < 0 {
                 isResponseRecognizer = false
@@ -122,11 +121,11 @@ extension Drawer {
         }
     }
 
-    @objc func panDrawerAction(pan: UIPanGestureRecognizer) {
-        let transition = pan.translation(in: self.drawer?.view)
+    @objc func dragDrawerAction(_ sender: UIPanGestureRecognizer) {
+        let transition = sender.translation(in: self.drawer?.view)
         let percentage = CGFloat(-transition.x/SCREEN_WIDTH)
-        let velocity = CGFloat(abs(pan.velocity(in: self.drawer?.view).x))
-        switch pan.state {
+        let velocity = CGFloat(abs(sender.velocity(in: self.drawer?.view).x))
+        switch sender.state {
         case .began:
             if transition.x > 0 {
                 isResponseRecognizer = false
