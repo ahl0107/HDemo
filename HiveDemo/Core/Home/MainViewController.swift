@@ -26,6 +26,10 @@ class MainViewController: UIViewController {
     var myFriend: DriveView!
     var funStackView: UIStackView!
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Hive"
@@ -33,6 +37,12 @@ class MainViewController: UIViewController {
         draw = Drawer(self.navigationController!, leftVC)
         createLeftItem()
         creatUI()
+        addNotification()
+    }
+
+    func addNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showAddFriendNotification(sender:)), name: .showAddFriend, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showFriendListNotification(sender:)), name: .showFriendList, object: nil)
     }
 
     func createLeftItem() {
@@ -117,8 +127,22 @@ class MainViewController: UIViewController {
     }
 
     @objc func friendList() {
+        draw.close()
         let myFriendVC = FriendViewController()
         self.navigationController?.pushViewController(myFriendVC, animated: true)
     }
+
+    @objc func showAddFriendNotification(sender: Notification) {
+        draw.close()
+        let scanVC = ScanViewController()
+        self.navigationController?.pushViewController(scanVC, animated: false)
+    }
+
+    @objc func showFriendListNotification(sender: Notification) {
+        draw.close()
+        let myFriendVC = FriendViewController()
+        self.navigationController?.pushViewController(myFriendVC, animated: false)
+    }
+
 }
 

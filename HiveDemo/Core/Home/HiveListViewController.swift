@@ -12,6 +12,7 @@ import UIKit
 /// The list page
 class HiveListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var pathView: FilePathView!
     var mainTableView: UITableView!
 
     override func viewDidLoad() {
@@ -21,6 +22,11 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func creatUI() {
+
+        pathView = FilePathView()
+        self.view.backgroundColor = ColorHex("#f7f3f3")
+        self.view.addSubview(pathView)
+
         mainTableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -28,16 +34,25 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         mainTableView.separatorStyle = .none
         mainTableView.register(HiveListCell.self, forCellReuseIdentifier: "HiveListCell")
         self.view.addSubview(mainTableView)
+
+        pathView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(44)
+            make.right.equalToSuperview().offset(-12)
+            make.top.equalTo(SAFE_BAR_Height)
+        }
+
         mainTableView.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.top.equalTo(pathView.snp_bottom)
 
             if #available(iOS 11.0, *) {
                 make.bottom.equalTo(view.safeAreaLayoutGuide)
             } else {
-                // Fallback on earlier versions
                 make.bottom.equalToSuperview().offset(-49)
             }
         }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

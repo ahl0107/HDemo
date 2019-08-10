@@ -25,10 +25,10 @@ class HeaderView: UIView {
 
     func creatUI() {
         icon = UIImageView(image: UIImage(named: "icon"))
+        icon.layer.cornerRadius = 10
+        icon.clipsToBounds = true
         self.addSubview(icon)
         icon.frame = CGRect(x: 30, y: 60, width: 60, height: 60)
     }
-
-
 
 }

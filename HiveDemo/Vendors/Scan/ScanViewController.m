@@ -7,6 +7,7 @@
 {
     BOOL upOrdown;
     NSTimer * timer;
+    NSInteger i;
 }
 @property (assign,nonatomic) BOOL isFlashLightOn;
 @property (strong,nonatomic) AVCaptureDevice *device;
@@ -37,17 +38,19 @@
     self.view.backgroundColor = [UIColor blackColor];
     self.navigationItem.title = NSLocalizedString(@"添加设备", nil);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(choicePhoto)];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    i++;
+    if (i != 1) return;
     [super viewDidAppear:animated];
-    if (self.isMovingToParentViewController) {
+//    if (self.isMovingToParentViewController) {
         [self setupCamera];
-        [self startScan];
-    }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startScan];
+        });
+//    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -80,10 +83,6 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate = self;
     [self presentViewController:imagePicker animated:YES completion:nil];
-}
-
-- (void)back {
-    [self.navigationController pushViewController:[[MainViewController alloc] init] animated:YES];
 }
 
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

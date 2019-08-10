@@ -27,6 +27,7 @@ class DriveView: UIView {
 
     func creatUI() {
         self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 10
         containerView = UIView()
         if #available(iOS 11.0, *) {
             containerView.layer.cornerRadius = 10
