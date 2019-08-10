@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /// The home 
 class MainViewController: UIViewController {
 
@@ -54,7 +53,7 @@ class MainViewController: UIViewController {
     func creatUI() {
         ipfsDrive = DriveView()
         ipfsDrive.button.addTarget(self, action: #selector(listAction(_:)), for: UIControl.Event.touchUpInside)
-        ipfsDrive.nameLable.text = "ipfsrive"
+        ipfsDrive.nameLable.text = "ipfsDrive"
 
         oneDrive = DriveView()
         oneDrive.button.addTarget(self, action: #selector(listAction(_:)), for: UIControl.Event.touchUpInside)

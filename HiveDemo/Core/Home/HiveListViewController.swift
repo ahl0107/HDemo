@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /// The list page
 class HiveListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

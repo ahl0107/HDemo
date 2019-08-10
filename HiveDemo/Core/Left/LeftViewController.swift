@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension Notification.Name {
     static let showAddFriend = Notification.Name("ShowAddFriend")
     static let showFriendList = Notification.Name("ShowFriendList")

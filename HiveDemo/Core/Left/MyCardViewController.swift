@@ -8,8 +8,6 @@
 
 import UIKit
 import QRCode
-import ElastosCarrierSDK
-
 
 class MyCardViewController: UIViewController {
 

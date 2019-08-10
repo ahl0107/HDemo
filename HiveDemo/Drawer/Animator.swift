@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 let DRAWER_ANIMATION_TIME = 0.3
 
