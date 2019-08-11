@@ -116,11 +116,12 @@ class HomeViewController: UIViewController {
             hiveListVC.driveType = .oneDrive
         }
         HiveManager.shareInstance.login(hiveListVC.driveType).done { succeed in
-            hiveListVC.path = "root"
+            hiveListVC.path = "/"
             self.navigationController?.pushViewController(hiveListVC, animated: true)
-            }.catch { error in
+            }
+            .catch { error in
                 print(error)
-        }
+            }
     }
 
    @objc func leftList() {

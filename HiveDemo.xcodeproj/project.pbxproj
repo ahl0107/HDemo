@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11C7286723007AD70078BB80 /* AuthWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7286623007AD70078BB80 /* AuthWebViewController.swift */; };
 		11ED67CE22FBD037004C17D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CD22FBD037004C17D0 /* AppDelegate.swift */; };
 		11ED67D022FBD037004C17D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CF22FBD037004C17D0 /* HomeViewController.swift */; };
 		11ED67D322FBD037004C17D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED67D122FBD037004C17D0 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11C7286623007AD70078BB80 /* AuthWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthWebViewController.swift; sourceTree = "<group>"; };
 		11ED67CA22FBD037004C17D0 /* HiveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ED67CD22FBD037004C17D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11ED67CF22FBD037004C17D0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11C7286523007ACF0078BB80 /* AuthWebView */ = {
+			isa = PBXGroup;
+			children = (
+				11C7286623007AD70078BB80 /* AuthWebViewController.swift */,
+			);
+			path = AuthWebView;
+			sourceTree = "<group>";
+		};
 		11ED67C122FBD036004C17D0 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		11ED67CC22FBD037004C17D0 /* HiveDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11C7286523007ACF0078BB80 /* AuthWebView */,
 				11ED67F722FD2482004C17D0 /* Vendors */,
 				11ED67EA22FBF8DC004C17D0 /* CommonView */,
 				11ED67DF22FBDA3B004C17D0 /* Drawer */,
@@ -398,6 +409,7 @@
 				11ED681722FD5CED004C17D0 /* HiveModel.swift in Sources */,
 				11ED681D22FD658D004C17D0 /* FriendViewController.swift in Sources */,
 				11ED67EC22FBF8FA004C17D0 /* NormalView.swift in Sources */,
+				11C7286723007AD70078BB80 /* AuthWebViewController.swift in Sources */,
 				11ED67E522FBE4D2004C17D0 /* Drawer.swift in Sources */,
 				11ED682622FEF3A7004C17D0 /* FilePathView.swift in Sources */,
 				11ED67E922FBE554004C17D0 /* Counst.swift in Sources */,

@@ -16,13 +16,13 @@ class HiveListCell: UITableViewCell {
     var model: HiveItemInfo? {
         didSet{
             nameLable?.text = model?.getValue(HiveItemInfo.name)
-            if (model?.getValue(HiveItemInfo.type) == "file") {
+            if (model?.getValue(HiveItemInfo.type) == "file" || model?.getValue(HiveItemInfo.type) == "1") {
                 icon?.image = UIImage.init(named: "files")
-                row?.isHidden = false
+                row?.isHidden = true
             }
             else {
                 icon?.image = UIImage.init(named: "directory")
-                row?.isHidden = true
+                row?.isHidden = false
             }
         }
     }

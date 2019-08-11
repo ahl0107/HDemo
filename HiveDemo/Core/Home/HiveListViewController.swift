@@ -18,6 +18,8 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     var path: String!
     var hiveClient: HiveClientHandle!
     var dataSource: Array<HiveItemInfo> = []
+    var dHandle: HiveDirectoryHandle?
+    var fHandle: HiveFileHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
 
         pathView = FilePathView()
         self.view.backgroundColor = ColorHex("#f7f3f3")
+        pathView.button.addTarget(self, action: #selector(creatDirectory), for: UIControl.Event.touchUpInside)
         self.view.addSubview(pathView)
 
         mainTableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
@@ -65,16 +68,32 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
 
     func request(_ type: DriveType, path: String) {
 
-        if path == "root" {
+        if path == "/" {
             requestRoot(type)
             return
         }
         switch type {
         case .nativeStorage: break
-        case .oneDrive: break
-        case .hiveIPFS: break
+        case .oneDrive:
+            hiveClient = HiveClientHandle.sharedInstance(type: .oneDrive)
+        case .hiveIPFS:
+            hiveClient = HiveClientHandle.sharedInstance(type: .hiveIPFS)
         case .dropBox: break
         case .ownCloud: break
+        }
+
+        hiveClient.defaultDriveHandle().then{ drive -> HivePromise<HiveDirectoryHandle> in
+            return drive.directoryHandle(atPath: path)
+            }.then{ directory -> HivePromise<HiveChildren> in
+                self.dHandle = directory
+                return directory.getChildren()
+            }
+            .done{ item in
+                self.dataSource = item.children
+                self.mainTableView.reloadData()
+            }
+            .catch { error in
+                print(error)
         }
     }
 
@@ -92,6 +111,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         hiveClient.defaultDriveHandle().then{ drive -> HivePromise<HiveDirectoryHandle> in
             return drive.rootDirectoryHandle()
             }.then{ rootDirectory -> HivePromise<HiveChildren> in
+                self.dHandle = rootDirectory
                 return rootDirectory.getChildren()
             }
             .done{ item in
@@ -116,7 +136,21 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        request(driveType, path: path) // todo
+        guard dataSource[indexPath.row].getValue(HiveItemInfo.type) == "folder" || dataSource[indexPath.row].getValue(HiveItemInfo.type) == "0" else {
+            // TODO view for file
+            return
+        }
+        let parentPath: String = self.dHandle!.parentPathName()
+        let name: String = dataSource[indexPath.row].getValue(HiveItemInfo.name)
+        var fullPath = "\(parentPath)/\(name)"
+        if parentPath == "/" {
+            fullPath = "/\(name)"
+        }
+        let newListVC = HiveListViewController()
+        newListVC.path = fullPath
+        newListVC.driveType = driveType
+
+        self.navigationController?.pushViewController(newListVC, animated: true)
     }
 
 
@@ -160,4 +194,9 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func longPressGestureAction(_ sender: UILongPressGestureRecognizer) {
         operateDirectory(HiveModel())
     }
+
+    @objc func creatDirectory() {
+
+    }
+
 }
