@@ -9,15 +9,25 @@
 import UIKit
 
 /// The list page
+
 class HiveListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var pathView: FilePathView!
     var mainTableView: UITableView!
+    var driveType: DriveType!
+    var path: String!
+    var hiveClient: HiveClientHandle!
+    var dataSource: Array<HiveItemInfo> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ColorHex("#f7f3f3")
         creatUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        request(driveType, path: path)
     }
 
     func creatUI() {
@@ -51,23 +61,62 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
                 make.bottom.equalToSuperview().offset(-49)
             }
         }
-        
+    }
+
+    func request(_ type: DriveType, path: String) {
+
+        if path == "root" {
+            requestRoot(type)
+            return
+        }
+        switch type {
+        case .nativeStorage: break
+        case .oneDrive: break
+        case .hiveIPFS: break
+        case .dropBox: break
+        case .ownCloud: break
+        }
+    }
+
+    func requestRoot(_ type: DriveType) {
+        switch type {
+        case .nativeStorage: break
+        case .oneDrive:
+            hiveClient = HiveClientHandle.sharedInstance(type: .oneDrive)
+        case .hiveIPFS:
+            hiveClient = HiveClientHandle.sharedInstance(type: .hiveIPFS)
+        case .dropBox: break
+        case .ownCloud: break
+        }
+
+        hiveClient.defaultDriveHandle().then{ drive -> HivePromise<HiveDirectoryHandle> in
+            return drive.rootDirectoryHandle()
+            }.then{ rootDirectory -> HivePromise<HiveChildren> in
+                return rootDirectory.getChildren()
+            }
+            .done{ item in
+                self.dataSource = item.children
+                self.mainTableView.reloadData()
+            }
+            .catch { error in
+                print(error)
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return dataSource.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: HiveListCell = tableView.dequeueReusableCell(withIdentifier: "HiveListCell") as! HiveListCell
         cell.longPress.addTarget(self, action: #selector(longPressGestureAction(_:)))
+        cell.model = dataSource[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        print(tableView)
+        request(driveType, path: path) // todo
     }
 
 

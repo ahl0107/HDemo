@@ -9,7 +9,7 @@
 import UIKit
 
 /// The home 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     var leftVC: LeftViewController = LeftViewController()
     var draw: Drawer!
@@ -105,10 +105,22 @@ class MainViewController: UIViewController {
 
     }
 
-//    mark - action
+    //    MARK: Button action
     @objc func listAction(_ sendr: UIButton) {
+        let typeView = sendr.superview
         let hiveListVC = HiveListViewController()
-        self.navigationController?.pushViewController(hiveListVC, animated: true)
+        if (typeView?.isEqual(ipfsDrive))! {
+            hiveListVC.driveType = .hiveIPFS
+        }
+        else if (typeView?.isEqual(oneDrive))! {
+            hiveListVC.driveType = .oneDrive
+        }
+        HiveManager.shareInstance.login(hiveListVC.driveType).done { succeed in
+            hiveListVC.path = "root"
+            self.navigationController?.pushViewController(hiveListVC, animated: true)
+            }.catch { error in
+                print(error)
+        }
     }
 
    @objc func leftList() {
@@ -131,6 +143,7 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(myFriendVC, animated: true)
     }
 
+    //    MARK: Notification Action
     @objc func showAddFriendNotification(sender: Notification) {
         draw.close()
         let scanVC = ScanViewController()

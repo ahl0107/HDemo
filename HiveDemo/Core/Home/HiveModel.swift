@@ -8,8 +8,6 @@
 
 import UIKit
 
-class HiveModel: NSObject {
-
-    
+class HiveModel {
 
 }

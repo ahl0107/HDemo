@@ -13,6 +13,19 @@ class HiveListCell: UITableViewCell {
     var nameLable: UILabel?
     var row: UIImageView?
     var longPress: UILongPressGestureRecognizer!
+    var model: HiveItemInfo? {
+        didSet{
+            nameLable?.text = model?.getValue(HiveItemInfo.name)
+            if (model?.getValue(HiveItemInfo.type) == "file") {
+                icon?.image = UIImage.init(named: "files")
+                row?.isHidden = false
+            }
+            else {
+                icon?.image = UIImage.init(named: "directory")
+                row?.isHidden = true
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

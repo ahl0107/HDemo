@@ -8,4 +8,6 @@
 
 import Foundation
 @_exported import ElastosCarrierSDK
+@_exported import ElastosHiveSDK
 @_exported import SnapKit
+@_exported import PromiseKit
