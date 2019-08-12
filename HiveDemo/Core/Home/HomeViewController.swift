@@ -102,7 +102,6 @@ class HomeViewController: UIViewController {
             make.left.equalToSuperview().offset(20)
             make.height.equalTo(66)
         }
-
     }
 
     //    MARK: Button action
@@ -116,7 +115,7 @@ class HomeViewController: UIViewController {
             hiveListVC.driveType = .oneDrive
         }
         HiveManager.shareInstance.login(hiveListVC.driveType).done { succeed in
-            hiveListVC.path = "/"
+            hiveListVC.fullPath = "/"
             self.navigationController?.pushViewController(hiveListVC, animated: true)
             }
             .catch { error in

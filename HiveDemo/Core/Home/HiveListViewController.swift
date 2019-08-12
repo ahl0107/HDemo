@@ -15,7 +15,8 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     var pathView: FilePathView!
     var mainTableView: UITableView!
     var driveType: DriveType!
-    var path: String!
+    var fullPath: String!
+    var path: String?
     var hiveClient: HiveClientHandle!
     var dataSource: Array<HiveItemInfo> = []
     var dHandle: HiveDirectoryHandle?
@@ -25,11 +26,13 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.view.backgroundColor = ColorHex("#f7f3f3")
         creatUI()
+        request(driveType, path: fullPath)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        request(driveType, path: path)
+//        request(driveType, path: path)
     }
 
     func creatUI() {
@@ -90,6 +93,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
             }
             .done{ item in
                 self.dataSource = item.children
+                self.refreshUI()
                 self.mainTableView.reloadData()
             }
             .catch { error in
@@ -116,11 +120,16 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
             }
             .done{ item in
                 self.dataSource = item.children
+                self.refreshUI()
                 self.mainTableView.reloadData()
             }
             .catch { error in
                 print(error)
         }
+    }
+
+    func refreshUI() {
+        self.pathView.containLable.text = fullPath
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,13 +150,17 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
             return
         }
         let parentPath: String = self.dHandle!.parentPathName()
-        let name: String = dataSource[indexPath.row].getValue(HiveItemInfo.name)
-        var fullPath = "\(parentPath)/\(name)"
+        let pathName: String = self.dHandle!.pathName
+        let selfName: String = dataSource[indexPath.row].getValue(HiveItemInfo.name)
+        var fullPath = "\(parentPath)/\(pathName)/\(selfName)"
         if parentPath == "/" {
-            fullPath = "/\(name)"
+            fullPath = "\(pathName)/\(selfName)"
+        }
+        if pathName == "/" {
+            fullPath = "/\(selfName)"
         }
         let newListVC = HiveListViewController()
-        newListVC.path = fullPath
+        newListVC.fullPath = fullPath
         newListVC.driveType = driveType
 
         self.navigationController?.pushViewController(newListVC, animated: true)
