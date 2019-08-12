@@ -15,6 +15,13 @@ let addrs = [
     "http://18.217.147.205:9095",
     "http://18.219.53.133:9095"]
 class HiveManager: Authenticator {
+    func didSucceed() {
+        DispatchQueue.main.sync {
+            let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+            rootViewController!.dismiss(animated: true, completion: nil)
+        }
+    }
+
     func requestAuthentication(_ requestURL: String) -> Bool {
         let authViewController: AuthWebViewController = AuthWebViewController()
         DispatchQueue.main.sync {
