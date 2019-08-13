@@ -220,10 +220,10 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func creatDirectory() {
 
         dHandle?.createDirectory(withName: "测试添加Directory-1").done{ directory in
-            self.requestChaildren(.oneDrive, path: self.fullPath)
+            self.requestChaildren(self.driveType, path: self.fullPath)
             }.catch{ error in
                 print(error)
-            }
+        }
     }
 
 
