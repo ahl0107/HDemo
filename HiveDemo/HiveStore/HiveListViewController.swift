@@ -26,8 +26,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.view.backgroundColor = ColorHex("#f7f3f3")
         creatUI()
-        request(driveType, path: fullPath)
-
+        requestChaildren(driveType, path: fullPath)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +68,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func request(_ type: DriveType, path: String) {
+    func requestChaildren(_ type: DriveType, path: String) {
 
         if path == "/" {
             requestRoot(type)
@@ -127,11 +126,27 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
                 print(error)
         }
     }
-
+    // MARK: refresh
     func refreshUI() {
+        self.navigationItem.title = path
         self.pathView.containLable.text = fullPath
     }
 
+    func computingFullPath(_ handle: HiveDirectoryHandle, _ selfName: String) -> String {
+
+        let parentPath: String = handle.parentPathName()
+        let pathName: String = handle.pathName
+        var fullPath = "\(parentPath)/\(pathName)/\(selfName)"
+        if parentPath == "/" {
+            fullPath = "\(pathName)/\(selfName)"
+        }
+        if pathName == "/" {
+            fullPath = "/\(selfName)"
+        }
+        return fullPath
+    }
+
+    //    MARK: tableviewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -149,24 +164,18 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
             // TODO view for file
             return
         }
-        let parentPath: String = self.dHandle!.parentPathName()
-        let pathName: String = self.dHandle!.pathName
+
         let selfName: String = dataSource[indexPath.row].getValue(HiveItemInfo.name)
-        var fullPath = "\(parentPath)/\(pathName)/\(selfName)"
-        if parentPath == "/" {
-            fullPath = "\(pathName)/\(selfName)"
-        }
-        if pathName == "/" {
-            fullPath = "/\(selfName)"
-        }
+        let fullPath = computingFullPath(self.dHandle!, selfName)
         let newListVC = HiveListViewController()
+        newListVC.path = selfName
         newListVC.fullPath = fullPath
         newListVC.driveType = driveType
 
         self.navigationController?.pushViewController(newListVC, animated: true)
     }
 
-
+    // MARK: file / directory operation
     func operateDirectory(_ model: HiveModel) {
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let deleteAction: UIAlertAction = UIAlertAction(title: "删除", style: UIAlertAction.Style.default) { (action) in
@@ -210,8 +219,12 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
 
     @objc func creatDirectory() {
 
-        
-
+        dHandle?.createDirectory(withName: "测试添加Directory-1").done{ directory in
+            self.requestChaildren(.oneDrive, path: self.fullPath)
+            }.catch{ error in
+                print(error)
+            }
     }
+
 
 }

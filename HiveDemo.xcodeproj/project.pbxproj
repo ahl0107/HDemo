@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111E0C0C230163E300167953 /* ElastosHiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111E0C0A230163D800167953 /* ElastosHiveSDK.framework */; };
+		111E0C0D230163E400167953 /* ElastosHiveSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 111E0C0A230163D800167953 /* ElastosHiveSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11C7286723007AD70078BB80 /* AuthWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7286623007AD70078BB80 /* AuthWebViewController.swift */; };
-		11C72876230111280078BB80 /* ElastosHiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C728742301111C0078BB80 /* ElastosHiveSDK.framework */; };
-		11C72877230111280078BB80 /* ElastosHiveSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11C728742301111C0078BB80 /* ElastosHiveSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11ED67CE22FBD037004C17D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CD22FBD037004C17D0 /* AppDelegate.swift */; };
 		11ED67D022FBD037004C17D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CF22FBD037004C17D0 /* HomeViewController.swift */; };
 		11ED67D322FBD037004C17D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED67D122FBD037004C17D0 /* Main.storyboard */; };
@@ -49,7 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				11C72877230111280078BB80 /* ElastosHiveSDK.framework in Embed Frameworks */,
+				111E0C0D230163E400167953 /* ElastosHiveSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,8 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		111E0C0A230163D800167953 /* ElastosHiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ElastosHiveSDK.framework; sourceTree = "<group>"; };
 		11C7286623007AD70078BB80 /* AuthWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthWebViewController.swift; sourceTree = "<group>"; };
-		11C728742301111C0078BB80 /* ElastosHiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ElastosHiveSDK.framework; sourceTree = "<group>"; };
 		11ED67CA22FBD037004C17D0 /* HiveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ED67CD22FBD037004C17D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11ED67CF22FBD037004C17D0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -104,13 +104,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5A7F9E1EB9E67308CA2BA92 /* Pods_HiveDemo.framework in Frameworks */,
-				11C72876230111280078BB80 /* ElastosHiveSDK.framework in Frameworks */,
+				111E0C0C230163E300167953 /* ElastosHiveSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111E0C3F2302880F00167953 /* HiveStore */ = {
+			isa = PBXGroup;
+			children = (
+				11ED681222FD3846004C17D0 /* HiveListViewController.swift */,
+				11ED681422FD385B004C17D0 /* HiveListCell.swift */,
+				11ED681622FD5CED004C17D0 /* HiveModel.swift */,
+			);
+			name = HiveStore;
+			path = HiveDemo/HiveStore;
+			sourceTree = SOURCE_ROOT;
+		};
 		11C7286523007ACF0078BB80 /* AuthWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,8 +251,9 @@
 			children = (
 				11ED682C22FF22E8004C17D0 /* Manager */,
 				11ED681B22FD613A004C17D0 /* Home */,
-				11ED681922FD60A9004C17D0 /* Friend */,
 				11ED681822FD6097004C17D0 /* Left */,
+				11ED681922FD60A9004C17D0 /* Friend */,
+				111E0C3F2302880F00167953 /* HiveStore */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -250,9 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				11ED67CF22FBD037004C17D0 /* HomeViewController.swift */,
-				11ED681222FD3846004C17D0 /* HiveListViewController.swift */,
-				11ED681422FD385B004C17D0 /* HiveListCell.swift */,
-				11ED681622FD5CED004C17D0 /* HiveModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -279,7 +288,7 @@
 		F7B6BF5351F66C32B6456256 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11C728742301111C0078BB80 /* ElastosHiveSDK.framework */,
+				111E0C0A230163D800167953 /* ElastosHiveSDK.framework */,
 				3BAE71C075442B564210F1AF /* Pods_HiveDemo.framework */,
 			);
 			name = Frameworks;

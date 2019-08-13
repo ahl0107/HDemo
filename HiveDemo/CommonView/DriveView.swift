@@ -28,12 +28,6 @@ class DriveView: UIView {
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
         containerView = UIView()
-        if #available(iOS 11.0, *) {
-            containerView.layer.cornerRadius = 10
-            containerView.layer.maskedCorners = CACornerMask(rawValue: CACornerMask.layerMinXMinYCorner.rawValue | CACornerMask.layerMaxXMinYCorner.rawValue)
-        }else {
-            containerView.filletedCorner(CGSize(width: 5, height: 5), UIRectCorner(rawValue: (UIRectCorner.topLeft.rawValue)|(UIRectCorner.topRight.rawValue)))
-        }
         self.addSubview(self.containerView)
         containerView.snp.makeConstraints { make in
             make.left.right.width.height.equalToSuperview()
@@ -62,19 +56,3 @@ class DriveView: UIView {
 
 }
 
-// MARK: - 给view扩展设置部分角是原角的方法
-extension UIView {
-
-    /// 设置多个圆角
-    ///
-    /// - Parameters:
-    ///   - cornerRadii: 圆角幅度
-    ///   - roundingCorners: UIRectCorner(rawValue: (UIRectCorner.topRight.rawValue) | (UIRectCorner.bottomRight.rawValue))
-    public func filletedCorner(_ cornerRadii:CGSize,_ roundingCorners:UIRectCorner)  {
-        let fieldPath = UIBezierPath.init(roundedRect: bounds, byRoundingCorners: roundingCorners, cornerRadii:cornerRadii )
-        let fieldLayer = CAShapeLayer()
-        fieldLayer.frame = bounds
-        fieldLayer.path = fieldPath.cgPath
-        self.layer.mask = fieldLayer
-    }
-}

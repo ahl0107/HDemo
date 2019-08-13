@@ -36,7 +36,7 @@ class FilePathView: UIView, UIScrollViewDelegate {
         scrollView.addSubview(stackView)
 
         containLable = UILabel()
-        containLable.text = "/root/1234567890128904567890234567890-234567890===1234567891234567==="
+        containLable.text = "/"
         containLable.font = UIFont.systemFont(ofSize: 15)
         stackView.addArrangedSubview(containLable)
 

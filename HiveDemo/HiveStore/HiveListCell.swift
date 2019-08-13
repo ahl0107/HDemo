@@ -50,7 +50,7 @@ class HiveListCell: UITableViewCell {
 
         nameLable = UILabel()
         nameLable?.backgroundColor = UIColor.clear
-        nameLable?.text = "44444"
+        nameLable?.text = ""
         nameLable?.textAlignment = .left
         nameLable!.sizeToFit()
         self.contentView.addSubview(nameLable!)
