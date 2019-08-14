@@ -29,9 +29,8 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         requestChaildren(driveType, path: fullPath)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        request(driveType, path: path)
+    func notificationAdded() {
+        NotificationCenter.default.addObserver(self, selector: #selector(frientInfoDidChange(_ :)), name: .friendInfoChanged, object: nil)
     }
 
     func creatUI() {
@@ -136,7 +135,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
 
         let parentPath: String = handle.parentPathName()
         let pathName: String = handle.pathName
-        var fullPath = "\(parentPath)/\(pathName)/\(selfName)"
+        var fullPath = "\(pathName)/\(selfName)"
         if parentPath == "/" {
             fullPath = "\(pathName)/\(selfName)"
         }
@@ -160,7 +159,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSource[indexPath.row].getValue(HiveItemInfo.type) == "folder" || dataSource[indexPath.row].getValue(HiveItemInfo.type) == "0" else {
+        guard dataSource[indexPath.row].getValue(HiveItemInfo.type) == "folder" else {
             // TODO view for file
             return
         }
@@ -224,6 +223,10 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
             }.catch{ error in
                 print(error)
         }
+    }
+    //    MARK: notification
+    @objc func frientInfoDidChange(_ sender: Notification) {
+
     }
 
 

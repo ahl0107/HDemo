@@ -11,11 +11,14 @@ import UIKit
 class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var mainTableView: UITableView!
+    var friendList: Array<CarrierFriendInfo> = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ColorHex("#f7f3f3")
         creatUI()
+        getFriendList()
     }
 
     func creatUI() {
@@ -38,13 +41,26 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    func getFriendList() {
+        if (Carrier.sharedInstance()?.isReady())! {
+            do {
+                friendList = try (Carrier.sharedInstance()?.getFriends())!
+                mainTableView.reloadData()
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return friendList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: FriendCell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
+        cell.model = friendList[indexPath.row]
         return cell
     }
 

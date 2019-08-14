@@ -13,6 +13,19 @@ class FriendCell: UITableViewCell {
     var nameLable: UILabel!
     var describeLable: UILabel!
     var switchButton: UISwitch!
+    var model: CarrierFriendInfo! {
+        didSet {
+            nameLable.text = model.name
+            if model.name == "" {
+            nameLable.text = model.userId
+            }
+            if model.status == .Connected {
+                switchButton.isOn = true
+            }else {
+                switchButton.isOn = false
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,7 +44,7 @@ class FriendCell: UITableViewCell {
 
         nameLable = UILabel()
         nameLable.backgroundColor = UIColor.clear
-        nameLable.text = "44444"
+        nameLable.text = ""
         nameLable.textAlignment = .left
         nameLable.sizeToFit()
         self.contentView.addSubview(nameLable)
