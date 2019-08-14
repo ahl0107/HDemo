@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11C7286723007AD70078BB80 /* AuthWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7286623007AD70078BB80 /* AuthWebViewController.swift */; };
+		11E338772303F2370089640E /* HiveHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E338762303F2370089640E /* HiveHud.swift */; };
 		11ED67CE22FBD037004C17D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CD22FBD037004C17D0 /* AppDelegate.swift */; };
 		11ED67D022FBD037004C17D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED67CF22FBD037004C17D0 /* HomeViewController.swift */; };
 		11ED67D322FBD037004C17D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED67D122FBD037004C17D0 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		11C7286623007AD70078BB80 /* AuthWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthWebViewController.swift; sourceTree = "<group>"; };
+		11E338762303F2370089640E /* HiveHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveHud.swift; sourceTree = "<group>"; };
 		11ED67CA22FBD037004C17D0 /* HiveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11ED67CD22FBD037004C17D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11ED67CF22FBD037004C17D0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				11ED67F222FC223E004C17D0 /* SwitchView.swift */,
 				11ED67F422FC6F95004C17D0 /* DriveView.swift */,
 				11ED682522FEF3A7004C17D0 /* FilePathView.swift */,
+				11E338762303F2370089640E /* HiveHud.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				11ED67EC22FBF8FA004C17D0 /* NormalView.swift in Sources */,
 				11C7286723007AD70078BB80 /* AuthWebViewController.swift in Sources */,
 				11ED67E522FBE4D2004C17D0 /* Drawer.swift in Sources */,
+				11E338772303F2370089640E /* HiveHud.swift in Sources */,
 				11ED682622FEF3A7004C17D0 /* FilePathView.swift in Sources */,
 				11ED67E922FBE554004C17D0 /* Counst.swift in Sources */,
 				11ED680422FD27A7004C17D0 /* MyCardViewController.swift in Sources */,

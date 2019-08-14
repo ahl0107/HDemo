@@ -161,6 +161,7 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard dataSource[indexPath.row].getValue(HiveItemInfo.type) == "folder" else {
             // TODO view for file
+            HiveHud.show(self.view, "此功能还在开发中", 1.5)
             return
         }
 
@@ -174,46 +175,67 @@ class HiveListViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.pushViewController(newListVC, animated: true)
     }
 
-    // MARK: file / directory operation
-    func operateDirectory(_ model: HiveModel) {
+    // MARK --- action
+    @objc func longPressGestureAction(_ sender: UILongPressGestureRecognizer) {
+
+        guard sender.state == .ended else {
+            return
+        }
+        let point: CGPoint = sender.location(in: mainTableView)
+        let indexPath = mainTableView.indexPathForRow(at: point)
+        let name = dataSource[(indexPath?.row)!].getValue(HiveItemInfo.name)
+        let type = dataSource[(indexPath?.row)!].getValue(HiveItemInfo.type)
+
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let deleteAction: UIAlertAction = UIAlertAction(title: "删除", style: UIAlertAction.Style.default) { (action) in
+
+            if type == "folder" {
+                self.dHandle?.directoryHandle(atName: name).done{ deleteDHandle in
+                    deleteDHandle.deleteItem().done{ success in
+                        self.dataSource.remove(at: indexPath!.row)
+                        self.mainTableView.reloadData()
+                        }.catch{ error in
+                            print(error)
+                            HiveHud.show(self.view, "删除失败", 1.5)
+                    }
+                    }.catch{ error in
+                        print(error)
+                        HiveHud.show(self.view, "删除失败", 1.5)
+                }
+            }
+            else {
+                self.dHandle?.fileHandle(atName: name).done{ deleteFile in
+                    deleteFile.deleteItem().done{ success in
+                        self.dataSource.remove(at: indexPath!.row)
+                        self.mainTableView.reloadData()
+                        }.catch{ error in
+                            HiveHud.show(self.view, "删除失败", 1.5)
+                    }
+                    }.catch{ error in
+                        HiveHud.show(self.view, "删除失败", 1.5)
+                }
+            }
         }
         let renameAction: UIAlertAction = UIAlertAction(title: "重命名", style: UIAlertAction.Style.default) { (action) in
+            HiveHud.show(self.view, "此功能还在开发中", 1.5)
         }
         let shareAction: UIAlertAction = UIAlertAction(title: "分享", style: UIAlertAction.Style.default) { (action) in
+            HiveHud.show(self.view, "此功能还在开发中", 1.5)
         }
         let uploadAction: UIAlertAction = UIAlertAction(title: "上传", style: UIAlertAction.Style.default) { (action) in
-        }
-        let cancleAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel) { (action) in
-        }
-        sheet.addAction(deleteAction)
-        sheet.addAction(renameAction)
-        sheet.addAction(shareAction)
-        sheet.addAction(uploadAction)
-        sheet.addAction(cancleAction)
-        sheet.modalPresentationStyle = UIModalPresentationStyle.popover
-        self.present(sheet, animated: true, completion: nil)
-    }
-
-    func operateFile(_ model: HiveModel) {
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        let deleteAction: UIAlertAction = UIAlertAction(title: "删除", style: UIAlertAction.Style.default) { (action) in
-        }
-        let renameAction: UIAlertAction = UIAlertAction(title: "重命名", style: UIAlertAction.Style.default) { (action) in
+             HiveHud.show(self.view, "此功能还在开发中", 1.5)
         }
         let cancleAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel) { (action) in
         }
         sheet.addAction(deleteAction)
         sheet.addAction(renameAction)
         sheet.addAction(cancleAction)
+        if type == "folder" {
+            sheet.addAction(shareAction)
+            sheet.addAction(uploadAction)
+        }
         sheet.modalPresentationStyle = UIModalPresentationStyle.popover
         self.present(sheet, animated: true, completion: nil)
-    }
-
-// MARK --- action
-    @objc func longPressGestureAction(_ sender: UILongPressGestureRecognizer) {
-        operateDirectory(HiveModel())
     }
 
     @objc func creatDirectory() {
